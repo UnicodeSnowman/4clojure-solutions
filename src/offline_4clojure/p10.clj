@@ -5,9 +5,7 @@
 (ns offline-4clojure.p10
   (:use clojure.test))
 
-(def __
-;; your solution here
-)
+(def __ 20)
 
 (defn -main []
   (are [soln] soln

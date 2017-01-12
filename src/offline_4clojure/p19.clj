@@ -5,9 +5,9 @@
 (ns offline-4clojure.p19
   (:use clojure.test))
 
-(def __
-;; your solution here
-)
+(def dec-count (comp dec count))
+
+(def __ #(nth % (dec-count %)))
 
 (defn -main []
   (are [soln] soln

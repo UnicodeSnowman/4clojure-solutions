@@ -5,13 +5,11 @@
 (ns offline-4clojure.p31
   (:use clojure.test))
 
-(def __
-;; your solution here
-)
+(defn pack [xs]
+  (partition-by identity xs))
 
 (defn -main []
   (are [soln] soln
-(= (__ [1 1 2 1 1 1 3 3]) '((1 1) (2) (1 1 1) (3 3)))
-(= (__ [:a :a :b :b :c]) '((:a :a) (:b :b) (:c)))
-(= (__ [[1 2] [1 2] [3 4]]) '(([1 2] [1 2]) ([3 4])))
-))
+(= (pack [1 1 2 1 1 1 3 3]) '((1 1) (2) (1 1 1) (3 3)))
+(= (pack [:a :a :b :b :c]) '((:a :a) (:b :b) (:c)))
+(= (pack [[1 2] [1 2] [3 4]]) '(([1 2] [1 2]) ([3 4])))))

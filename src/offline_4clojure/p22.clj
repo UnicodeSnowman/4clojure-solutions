@@ -6,8 +6,7 @@
   (:use clojure.test))
 
 (def __
-;; your solution here
-)
+  #(reduce + (map (constantly 1) %)))
 
 (defn -main []
   (are [soln] soln
@@ -15,5 +14,6 @@
 (= (__ "Hello World") 11)
 (= (__ [[1 2] [3 4] [5 6]]) 3)
 (= (__ '(13)) 1)
+(= (__ '()) 0)
 (= (__ '(:a :b :c)) 3)
 ))

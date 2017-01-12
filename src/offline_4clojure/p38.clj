@@ -5,13 +5,14 @@
 (ns offline-4clojure.p38
   (:use clojure.test))
 
-(def __
-;; your solution here
-)
+(defn my-max [& xs]
+  (reduce (fn [acc v]
+            (if (> v acc) v acc)) xs))
+
+(defn max-clojure-y [& xs] (last (sort xs)))
 
 (defn -main []
   (are [soln] soln
-(= (__ 1 8 3 4) 8)
-(= (__ 30 20) 30)
-(= (__ 45 67 11) 67)
-))
+       (= (max-clojure-y 1 8 3 4) 8)
+       (= (max-clojure-y 30 20) 30)
+       (= (max-clojure-y 45 67 11) 67)))

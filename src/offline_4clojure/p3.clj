@@ -6,8 +6,7 @@
   (:use clojure.test))
 
 (def __
-;; your solution here
-)
+  "HELLO WORLD")
 
 (defn -main []
   (are [soln] soln

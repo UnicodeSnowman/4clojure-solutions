@@ -5,9 +5,7 @@
 (ns offline-4clojure.p16
   (:use clojure.test))
 
-(def __
-;; your solution here
-)
+(def __ #(str "Hello, " % "!"))
 
 (defn -main []
   (are [soln] soln

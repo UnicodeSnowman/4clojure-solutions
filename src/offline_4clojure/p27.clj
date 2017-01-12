@@ -4,17 +4,29 @@
 ;; tags - seqs
 ;; restricted - 
 (ns offline-4clojure.p27
+  (:require [clojure.spec :as s]
+            [clojure.spec.gen :as gen]
+            [clojure.spec.test :as stest])
   (:use clojure.test))
 
-(def __
-;; your solution here
-)
+(defn palindrome? [values]
+  (= (-> values reverse seq) (seq values)))
+
+(s/fdef palindrome?
+        :args (s/cat :values (s/or
+                               :nums (s/coll-of number? :max-count 20)
+                               :strings string?
+                               :kws (s/coll-of keyword? :max-count 20)))
+        :ret boolean?)
+
+; these hang... need tighter specs and/or different generator(s)?
+(stest/check `palindrome?)
+(s/exercise-fn `palindrome?)
 
 (defn -main []
   (are [soln] soln
-(false? (__ '(1 2 3 4 5)))
-(true? (__ "racecar"))
-(true? (__ [:foo :bar :foo]))
-(true? (__ '(1 1 3 3 1 1)))
-(false? (__ '(:a :b :c)))
-))
+       (false? (palindrome? '(1 2 3 4 5)))
+       (true? (palindrome? "racecar"))
+       (true? (palindrome? [:foo :bar :foo]))
+       (true? (palindrome? '(1 1 3 3 1 1)))
+       (false? (palindrome? '(:a :b :c)))))

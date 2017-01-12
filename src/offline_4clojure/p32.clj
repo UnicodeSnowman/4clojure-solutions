@@ -5,14 +5,12 @@
 (ns offline-4clojure.p32
   (:use clojure.test))
 
-(def __
-;; your solution here
-)
+(defn duplicate-sequence [xs]
+  (mapcat #(repeat 2 %) xs))
 
 (defn -main []
   (are [soln] soln
-(= (__ [1 2 3]) '(1 1 2 2 3 3))
-(= (__ [:a :a :b :b]) '(:a :a :a :a :b :b :b :b))
-(= (__ [[1 2] [3 4]]) '([1 2] [1 2] [3 4] [3 4]))
-(= (__ [[1 2] [3 4]]) '([1 2] [1 2] [3 4] [3 4]))
-))
+(= (duplicate-sequence [1 2 3]) '(1 1 2 2 3 3))
+(= (duplicate-sequence [:a :a :b :b]) '(:a :a :a :a :b :b :b :b))
+(= (duplicate-sequence [[1 2] [3 4]]) '([1 2] [1 2] [3 4] [3 4]))
+(= (duplicate-sequence [[1 2] [3 4]]) '([1 2] [1 2] [3 4] [3 4]))))

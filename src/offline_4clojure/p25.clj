@@ -3,16 +3,21 @@
 ;; tags - seqs
 ;; restricted - 
 (ns offline-4clojure.p25
+  (:require [clojure.spec :as s]
+            [clojure.spec.gen :as gen])
   (:use clojure.test))
 
-(def __
-;; your solution here
-)
+(defn filter-odd [xs] (filter odd? xs))
+
+(s/def ::num-collection (s/coll-of int?))
+(s/fdef filter-odd
+  :args (s/cat :xs ::num-collection)
+  :fn #(<= (count (:ret %)) (count (-> % :args :xs)))
+  :ret ::num-collection)
 
 (defn -main []
   (are [soln] soln
-(= (__ #{1 2 3 4 5}) '(1 3 5))
-(= (__ [4 2 1 6]) '(1))
-(= (__ [2 2 4 6]) '())
-(= (__ [1 1 1 3]) '(1 1 1 3))
-))
+(= (filter-odd #{1 2 3 4 5}) '(1 3 5))
+(= (filter-odd [4 2 1 6]) '(1))
+(= (filter-odd [2 2 4 6]) '())
+(= (filter-odd [1 1 1 3]) '(1 1 1 3))))
