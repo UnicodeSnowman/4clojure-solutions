@@ -5,15 +5,14 @@
 (ns offline-4clojure.p44
   (:use clojure.test))
 
-(def __
-;; your solution here
-)
+(defn rotate [v xs]
+  (let [n (count xs)]
+   (take n (drop (+ v n) (cycle xs)))))
 
 (defn -main []
   (are [soln] soln
-(= (__ 2 [1 2 3 4 5]) '(3 4 5 1 2))
-(= (__ -2 [1 2 3 4 5]) '(4 5 1 2 3))
-(= (__ 6 [1 2 3 4 5]) '(2 3 4 5 1))
-(= (__ 1 '(:a :b :c)) '(:b :c :a))
-(= (__ -4 '(:a :b :c)) '(:c :a :b))
-))
+       (= (rotate 2 [1 2 3 4 5]) '(3 4 5 1 2))
+       (= (rotate -2 [1 2 3 4 5]) '(4 5 1 2 3))
+       (= (rotate 6 [1 2 3 4 5]) '(2 3 4 5 1))
+       (= (rotate 1 '(:a :b :c)) '(:b :c :a))
+       (= (rotate -4 '(:a :b :c)) '(:c :a :b)))) ; FIXME this one still doesn't work because 3 + -4 is negative!

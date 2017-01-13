@@ -23,7 +23,7 @@
 (s/exercise-fn `my-flatten)
 
 ; this hangs, need tighter specs and/or different generator(s)?
-(stest/check `my-flatten)
+(stest/check `my-flatten {:clojure.spec.test.check/opts {:max-size 5}})
 
 (defn -main []
   (are [soln] soln

@@ -5,14 +5,12 @@
 (ns offline-4clojure.p42
   (:use clojure.test))
 
-(def __
-;; your solution here
-)
+(defn factorial [v]
+  (apply * (range 1 (inc v))))
 
 (defn -main []
   (are [soln] soln
-(= (__ 1) 1)
-(= (__ 3) 6)
-(= (__ 5) 120)
-(= (__ 8) 40320)
-))
+       (= (factorial 1) 1)
+       (= (factorial 3) 6)
+       (= (factorial 5) 120)
+       (= (factorial 8) 40320)))
