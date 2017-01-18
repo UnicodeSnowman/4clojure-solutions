@@ -5,13 +5,11 @@
 (ns offline-4clojure.p49
   (:use clojure.test))
 
-(def __
-;; your solution here
-)
+(defn split-in-two [idx xs]
+          (vector (take idx xs) (drop idx xs)))
 
 (defn -main []
   (are [soln] soln
-(= (__ 3 [1 2 3 4 5 6]) [[1 2 3] [4 5 6]])
-(= (__ 1 [:a :b :c :d]) [[:a] [:b :c :d]])
-(= (__ 2 [[1 2] [3 4] [5 6]]) [[[1 2] [3 4]] [[5 6]]])
-))
+       (= (split-in-two 3 [1 2 3 4 5 6]) [[1 2 3] [4 5 6]])
+       (= (split-in-two 1 [:a :b :c :d]) [[:a] [:b :c :d]])
+       (= (split-in-two 2 [[1 2] [3 4] [5 6]]) [[[1 2] [3 4]] [[5 6]]])))

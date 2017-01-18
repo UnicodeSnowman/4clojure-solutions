@@ -5,11 +5,8 @@
 (ns offline-4clojure.p45
   (:use clojure.test))
 
-(def __
-;; your solution here
-)
+(def answer [1 4 7 10 13])
 
 (defn -main []
   (are [soln] soln
-(= __ (take 5 (iterate #(+ 3 %) 1)))
-))
+       (= answer (take 5 (iterate #(+ 3 %) 1)))))
