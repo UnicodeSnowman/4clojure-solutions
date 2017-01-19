@@ -6,11 +6,7 @@
   (:use clojure.test))
 
 (def split-by-type
-  123)
-
-; something like...
-; (comp partition-by type)
-; but this splits every time it finds a differeent value, which is wrong...
+  (comp vals (partial group-by type)))
 
 (defn -main []
   (are [soln] soln
