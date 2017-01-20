@@ -5,13 +5,29 @@
 (ns offline-4clojure.p53
   (:use clojure.test))
 
-(def __
-  ;; your solution here
-  )
+(defn valid? [coll]
+  (apply < coll))
+
+(defn longest-increasing-sub-seq [xs]
+  (while (seq xs)
+    ))
 
 (defn -main []
   (are [soln] soln
-       (= (__ [1 0 1 2 3 0 4 5]) [0 1 2 3])
-       (= (__ [5 6 1 3 2 7]) [5 6])
-       (= (__ [2 3 3 4 5]) [3 4 5])
-       (= (__ [7 6 5 4]) [])))
+       (= (longest-increasing-sub-seq [1 0 1 2 3 0 4 5]) [0 1 2 3])
+       (= (longest-increasing-sub-seq [5 6 1 3 2 7]) [5 6])
+       (= (longest-increasing-sub-seq [2 3 3 4 5]) [3 4 5])
+       (= (longest-increasing-sub-seq [7 6 5 4]) [])))
+
+(def blah [1 0 1 2 3 0 4 5])
+(def blah [5 6 1 3 2 7])
+(def blah [2 3 3 4 5])
+
+(partition-by < blah)
+(split-with < blah)
+
+(partition 2 1 blah)
+
+(map (fn [a b]
+       [b a]) blah (cons nil (butlast blah)))
+
