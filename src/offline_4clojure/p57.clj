@@ -5,11 +5,8 @@
 (ns offline-4clojure.p57
   (:use clojure.test))
 
-(def __
-;; your solution here
-)
+(def __)
 
 (defn -main []
   (are [soln] soln
-(= __ ((fn foo [x] (when (> x 0) (conj (foo (dec x)) x))) 5))
-))
+       (= __ ((fn foo [x] (when (> x 0) (conj (foo (dec x)) x))) 5))))
