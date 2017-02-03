@@ -6,13 +6,17 @@
 (ns offline-4clojure.p67
   (:use clojure.test))
 
-(def __
-;; your solution here
-)
+(defn primes [n]
+  (take n (iterate
+            (fn [x]
+              (let [next-val (inc x)]
+                (if (not-any? #(zero? (mod next-val %)) (range 2 next-val))
+                  next-val
+                  (recur next-val))))
+            2)))
 
 (defn -main []
   (are [soln] soln
-(= (__ 2) [2 3])
-(= (__ 5) [2 3 5 7 11])
-(= (last (__ 100)) 541)
-))
+       (= (primes 2) [2 3])
+       (= (primes 5) [2 3 5 7 11])
+       (= (last (primes 100)) 541)))

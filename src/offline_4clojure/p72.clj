@@ -5,13 +5,8 @@
 (ns offline-4clojure.p72
   (:use clojure.test))
 
-(def __
-;; your solution here
-)
-
 (defn -main []
   (are [soln] soln
-(= (__ (map inc (take 3 (drop 2 [2 5 4 1 3 6]))))
-   (->> [2 5 4 1 3 6] (drop 2) (take 3) (map inc) (__))
-   11)
-))
+       (= (apply + (map inc (take 3 (drop 2 [2 5 4 1 3 6]))))
+          (->> [2 5 4 1 3 6] (drop 2) (take 3) (map inc) (apply +))
+          11)))
