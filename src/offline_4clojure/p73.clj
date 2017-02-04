@@ -9,7 +9,7 @@
 (ns offline-4clojure.p73
   (:use clojure.test))
 
-(defn correct? [values]
+(defn winning-side [values]
   (cond
     (every? #(= :x %) values) :x
     (every? #(= :o %) values) :o
@@ -19,13 +19,13 @@
   (apply mapv vector rows))
 
 (defn row-win [rows]
-  (some correct? rows))
+  (some winning-side rows))
 
 (def col-win
   (comp row-win rotate-matrix))
 
 (defn diag-win [rows]
-  (correct? (map-indexed (fn [idx row] (nth row idx)) rows)))
+  (winning-side (map-indexed (fn [idx row] (nth row idx)) rows)))
 
 (defn __ [brd]
   (some #(% brd) [row-win col-win diag-win (comp diag-win reverse)]))
@@ -56,5 +56,3 @@
        (= nil (__ [[:x :o :x]
                    [:x :o :x]
                    [:o :x :o]]))))
-
-(-main)
