@@ -13,15 +13,7 @@
   (= 1 (gcd a b)))
 
 (defn totient [x]
-  (filter (partial coprime? x) (range 1 (inc x))))
-
-; apparently my gcd function is incorrect? need to think more on
-; why...
-(defn totient [n]
-  (if (= n 1)
-    1
-    (let [gcd (fn [a b] (if (zero? b) a (recur b (mod a b))))]
-      (count (filter #{1} (map (partial gcd n) (range 1 n)))))))
+  (count (filter (partial coprime? x) (range 1 (inc x)))))
 
 (defn -main []
   (are [soln] soln
