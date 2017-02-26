@@ -5,15 +5,19 @@
 (ns offline-4clojure.p85
   (:use clojure.test))
 
-(def __
-;; your solution here
-)
+(defn power-set [s])
 
 (defn -main []
   (are [soln] soln
-(= (__ #{1 :a}) #{#{1 :a} #{:a} #{} #{1}})
-(= (__ #{}) #{#{}})
-(= (__ #{1 2 3})
-   #{#{} #{1} #{2} #{3} #{1 2} #{1 3} #{2 3} #{1 2 3}})
-(= (count (__ (into #{} (range 10)))) 1024)
-))
+       (= (power-set #{1 :a}) #{#{1 :a} #{:a} #{} #{1}})
+       (= (power-set #{}) #{#{}})
+       (= (power-set #{1 2 3})
+          #{#{} #{1} #{2} #{3} #{1 2} #{1 3} #{2 3} #{1 2 3}})
+       (= (count (power-set (into #{} (range 10)))) 1024)))
+
+; 000
+; 001
+; 010
+; 011
+; ...etc
+; (nth (into [] #{1 3 2}) 0)

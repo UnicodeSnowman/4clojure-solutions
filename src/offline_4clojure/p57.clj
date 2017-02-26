@@ -5,7 +5,7 @@
 (ns offline-4clojure.p57
   (:use clojure.test))
 
-(def __)
+(def __ '(5 4 3 2 1))
 
 (defn -main []
   (are [soln] soln

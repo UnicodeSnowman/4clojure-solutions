@@ -8,9 +8,7 @@
   (:use clojure.test))
 
 (defn valid? [coll]
-  (and
-    (>= (count coll) 2)
-    (= coll (range (first coll) (inc (last coll))))))
+  (= coll (range (first coll) (inc (last coll)))))
 
 (defn longest-increasing-sub-seq
   ([xs] (longest-increasing-sub-seq xs (count xs)))
