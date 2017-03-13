@@ -45,8 +45,3 @@
        (= (happy? 986543210) true)
        (= (happy? 2) false)
        (= (happy? 3) false)))
-
-(digits 986543210)
-(digits 47)
-(Math/floor (/ 7 10))
-(/ 986543210 10)

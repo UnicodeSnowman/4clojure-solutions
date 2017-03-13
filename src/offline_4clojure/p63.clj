@@ -19,5 +19,5 @@
        (= (grouper count [[1] [1 2] [3] [1 2 3] [2 3]])
           {1 [[1] [3]], 2 [[1 2] [2 3]], 3 [[1 2 3]]})))
 
-(update { :stuff [1 2 3] } :other conj 4)
-(update (update {} false conj 1) false conj 3)
+ ; (update { :stuff [1 2 3] } :other conj 4)
+ ; (update (update {} false conj 1) false conj 3)

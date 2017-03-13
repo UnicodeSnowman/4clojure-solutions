@@ -5,6 +5,7 @@
 (ns offline-4clojure.p85
   (:use clojure.test))
 
+;; TODO
 (defn power-set [s])
 
 (defn -main []
