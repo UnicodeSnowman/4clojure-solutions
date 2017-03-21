@@ -3,15 +3,23 @@
 ;; tags - strings
 ;; restricted - 
 (ns offline-4clojure.p102
+  (:require [clojure.string :refer [join upper-case split]])
   (:use clojure.test))
 
-(def __
-;; your solution here
-)
+(defn camelize [s]
+  (let [parts (clojure.string/split s #"-")]
+    (->>
+      (drop 1 parts)
+      (mapv
+        (fn [[head & tail]]
+          (str
+            (-> head str upper-case)
+            (join tail))))
+      (join)
+      (str (first parts)))))
 
 (defn -main []
   (are [soln] soln
-(= (__ "something") "something")
-(= (__ "multi-word-key") "multiWordKey")
-(= (__ "leaveMeAlone") "leaveMeAlone")
-))
+       (= (camelize "something") "something")
+       (= (camelize "multi-word-key") "multiWordKey")
+       (= (camelize "leaveMeAlone") "leaveMeAlone")))

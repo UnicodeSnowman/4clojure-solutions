@@ -5,9 +5,9 @@
 (ns offline-4clojure.p104
   (:use clojure.test))
 
-(def __
-;; your solution here
-)
+; TODO
+(defn __ [numeral]
+  )
 
 (defn -main []
   (are [soln] soln
